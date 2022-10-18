@@ -42,12 +42,7 @@ const codeExample =
     'await account.wallet.pay(paymentParameters);\n';
 
 export default function Home({redirectionUrl, sessionToken, user}) {
-    const [token, setToken] = useState();
     const [paymentResult, setPaymentResult] = useState({status: 'none'});
-
-    useEffect(() => {
-        setToken(sessionToken);
-    }, [sessionToken]);
 
     const pay = async () => {
         setPaymentResult({status: 'pending'});
@@ -56,7 +51,7 @@ export default function Home({redirectionUrl, sessionToken, user}) {
             {
                 method: "POST",
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    'Authorization': `Bearer ${sessionToken}`,
                 },
             }
         );
@@ -67,7 +62,7 @@ export default function Home({redirectionUrl, sessionToken, user}) {
         window.location.href = "/";
     };
 
-    if (!token) {
+    if (!sessionToken) {
         return (
             <div className="flex flex-grow flex-col items-center justify-end self-start p-6">
                 <h1 className="text-5xl mb-12">

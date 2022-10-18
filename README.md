@@ -111,7 +111,7 @@ const pay = async () => {
         {
             method: "POST",
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${sessionToken}`,
             },
         }
     );
