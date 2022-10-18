@@ -7,10 +7,11 @@ import CodeSnippet from "../components/CodeSnippet";
 
 export function getServerSideProps({query}) {
     const {sessionToken} = query;
+    const redirectionUrl = new HandCashService().getRedirectionUrl();
     try {
         return {
             props: {
-                redirectionUrl: new HandCashService().getRedirectionUrl(),
+                redirectionUrl,
                 sessionToken: sessionToken || false,
                 user: sessionToken ? SessionTokenRepository.decode(sessionToken).user : false,
             },
@@ -19,7 +20,7 @@ export function getServerSideProps({query}) {
         console.log(error);
         return {
             props: {
-                redirectionUrl: new HandCashService().getRedirectionUrl(),
+                redirectionUrl,
                 sessionToken: false,
                 user: false,
             },

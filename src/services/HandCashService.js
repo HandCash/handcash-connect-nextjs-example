@@ -7,7 +7,6 @@ const appSecret = process.env.handcash_app_secret;
 const handCashConnect = new HandCashConnect({
     appId: appId,
     appSecret: appSecret,
-    env: Environments.iae,
 });
 
 export default class HandCashService {
