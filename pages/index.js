@@ -102,7 +102,7 @@ export default function Home({redirectionUrl, sessionToken, user}) {
             <div className="w-full mb-4 flex justify-between items-end">
                 <div className="flex items-center gap-x-1 group">
                     <div className="bg-darkBackground-900 rounded-full border m-0 hover:bg-white/5">
-                        <div className="flex gap-x-4 pr-10">
+                        <div className="flex gap-x-3 pr-6">
                             <img src={user.avatarUrl}
                                  className="inline-block w-8 h-8 border-white/50 rounded-full border-r border-t border-b"/>
                             <div className="flex flex-col justify-center items-start gap-y-0.5">
