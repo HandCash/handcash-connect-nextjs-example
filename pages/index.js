@@ -113,14 +113,14 @@ export default function Home({redirectionUrl, sessionToken, user}) {
                 <div
                     className={"flex px-4 h-8 items-center rounded-full border bg-gradient-to-r from-brandNormal to-brandDark hover:opacity-90 text-sm font-semibold hover:cursor-pointer" + (paymentResult?.status === 'pending' ? 'animate-pulse' : '')}
                     onClick={paymentResult?.status === 'pending' ? null : pay}>
-                    <p>Run this code</p>
+                    <p>{paymentResult?.status === 'pending' ? 'Running...' : 'Run this code'}</p>
                 </div>
             </div>
             <CodeSnippet code={codeExample.replace('your-handle', user.handle)}/>
 
             {paymentResult.status === 'sent' &&
                 <div
-                    className="w-full flex m-6 border border-brandLight p-4 rounded-xl bg-darkBackground-900 gap-x-6 items-center">
+                    className="w-full flex m-6 border border-brandLight p-4 rounded-xl bg-brandLight/5 gap-x-6 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                          stroke="currentColor" className="w-10 h-10 text-brandLight">
                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -138,7 +138,7 @@ export default function Home({redirectionUrl, sessionToken, user}) {
             }
             {paymentResult.status === 'error' &&
                 <div
-                    className="flex w-full  m-6 border border-red-400 p-4 rounded-xl bg-darkBackground-900 gap-x-6 items-center">
+                    className="flex w-full  m-6 border border-red-400 p-4 rounded-xl bg-red-500/3 gap-x-6 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                          stroke="currentColor" className="w-10 h-10 text-red-400">
                         <path strokeLinecap="round" strokeLinejoin="round"
