@@ -1,4 +1,7 @@
 import {CopyBlock, tomorrowNight} from "react-code-blocks";
+import config from "../tailwind.config";
+
+tomorrowNight.backgroundColor = config.theme.extend.colors.darkBackground[800];
 
 const CodeSnippet = ({code}) => {
     return (
