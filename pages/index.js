@@ -63,6 +63,10 @@ export default function Home({redirectionUrl, sessionToken, user}) {
         setPaymentResult(await response.json());
     };
 
+    const onDisconnect = async () => {
+        window.location.href = "/";
+    };
+
     if (!token) {
         return (
             <div className="flex flex-grow flex-col items-center justify-end self-start p-6">
@@ -96,18 +100,23 @@ export default function Home({redirectionUrl, sessionToken, user}) {
     return (
         <div className="flex flex-grow flex-col items-center justify-end self-start p-6">
             <div className="w-full mb-4 flex justify-between items-end">
-                <div className="bg-darkBackground-900 rounded-full border m-0">
-                    <div className="flex gap-x-4 pr-10">
-                        <img src={user.avatarUrl}
-                             className="inline-block w-10 h-10 border-white/50 rounded-full border-r border-t border-b"/>
-                        <div className="flex flex-col justify-center items-start">
-                            <span className="text-[10px] leading-3 text-white/70">Connected as</span>
-                            <span className="font-bold leading-4">${user.handle}</span>
+                <div className="flex items-center gap-x-1 group">
+                    <div className="bg-darkBackground-900 rounded-full border m-0 hover:bg-white/5">
+                        <div className="flex gap-x-4 pr-10">
+                            <img src={user.avatarUrl}
+                                 className="inline-block w-8 h-8 border-white/50 rounded-full border-r border-t border-b"/>
+                            <div className="flex flex-col justify-center items-start gap-y-0.5">
+                                <span className="font-bold text-white/90 leading-4">${user.handle}</span>
+                            </div>
                         </div>
                     </div>
+                    <button
+                        className="rounded-lg px-3 py-1.5 text-xs bg-white/20 shadow-sm shadow-white/20 invisible group-hover:visible font-semibold text-red-400 hover:text-red-500 border border-transparent hover:border-red-500/30"
+                        onClick={onDisconnect}>Disconnect
+                    </button>
                 </div>
                 <div
-                    className={"h-fit px-4 py-2.5 rounded-full border bg-gradient-to-r from-brandNormal to-brandDark hover:opacity-90 text-sm font-semibold hover:cursor-pointer" + (paymentResult?.status === 'pending' ? 'animate-pulse' : '')}
+                    className={"flex px-4 h-8 items-center rounded-full border bg-gradient-to-r from-brandNormal to-brandDark hover:opacity-90 text-sm font-semibold hover:cursor-pointer" + (paymentResult?.status === 'pending' ? 'animate-pulse' : '')}
                     onClick={paymentResult?.status === 'pending' ? null : pay}>
                     <p>Run this code</p>
                 </div>
