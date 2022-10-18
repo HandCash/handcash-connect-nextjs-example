@@ -138,7 +138,7 @@ export default function Home({redirectionUrl, sessionToken, user}) {
             }
             {paymentResult.status === 'error' &&
                 <div
-                    className="flex w-full  m-6 border border-brandLight p-4 rounded-xl bg-darkBackground-900 gap-x-6 items-center">
+                    className="flex w-full  m-6 border border-red-400 p-4 rounded-xl bg-darkBackground-900 gap-x-6 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                          stroke="currentColor" className="w-10 h-10 text-red-400">
                         <path strokeLinecap="round" strokeLinejoin="round"
