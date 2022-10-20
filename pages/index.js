@@ -1,5 +1,5 @@
 import {Environments, HandCashConnect} from '@handcash/handcash-connect';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import HandCashService from "../src/services/HandCashService";
 import SessionTokenRepository from "../src/repositories/SessionTokenRepository";
 import CodeSnippet from "../components/CodeSnippet";
@@ -147,10 +147,7 @@ export default function Home({redirectionUrl, sessionToken, user}) {
 
                     <div>
                         <p className="text-lg text-white font-bold">Payment failed</p>
-                        <a className="text-white/70"
-                           target="_blank"
-                           rel="noreferrer"
-                           href={`https://whatsonchain.com/tx/${paymentResult.transactionId}`}>{paymentResult.error}</a>
+                        <p className="text-white/70">{paymentResult.message}</p>
                     </div>
                 </div>
             }

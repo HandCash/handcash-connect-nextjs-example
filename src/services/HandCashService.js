@@ -14,7 +14,7 @@ export default class HandCashService {
         this.account = handCashConnect.getAccountFromAuthToken(authToken);
     }
 
-    async getProfile(username) {
+    async getProfile() {
         return this.account.profile.getCurrentProfile();
     }
 

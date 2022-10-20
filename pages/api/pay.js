@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     }
     try {
         const {authorization} = req.headers;
-        const sessionToken = authorization.replace('Bearer ', '');
+        const sessionToken = authorization.split(' ')[1];
         if (!sessionToken) {
             return res.status(401).json({error: 'Missing authorization.'});
         }
