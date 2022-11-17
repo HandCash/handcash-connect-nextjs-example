@@ -1,4 +1,3 @@
-import {Environments, HandCashConnect} from '@handcash/handcash-connect';
 import {useState} from "react";
 import HandCashService from "../src/services/HandCashService";
 import SessionTokenRepository from "../src/repositories/SessionTokenRepository";
@@ -131,8 +130,7 @@ export default function Home({redirectionUrl, sessionToken, user}) {
                         <a className="text-white/70"
                            target="_blank"
                            rel="noreferrer"
-                           href={`https://whatsonchain.com/tx/${paymentResult.transactionId}`}>Check on the
-                            blockchain</a>
+                           href={`https://app.handcash.io/#/payment/${paymentResult.transactionId}`}>Open in HandCash</a>
                     </div>
                 </div>
             }
