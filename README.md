@@ -40,7 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 The authentication flow is the following:
 1) The user is redirected from your app to HandCash.
 2) The user is redirected back to your app with the `authToken` parameter.
-3) The endpoint `/api/auth/handcash/success` stores the `authToken` and generates a `sessionToken`
+3) The endpoint `/api/auth/handcash/success` stores the `authToken` and generates a `sessionToken`. This endpoint needs to be set as the redirection success url in the app settings at  https://dashboard.handcash.io 
 4) The user is redirected to the home page with the `sessionToken` parameter.
 
 ```javascript
